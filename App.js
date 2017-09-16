@@ -10,6 +10,14 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
+class ToDo extends Component {
+  render() {
+    return (
+      <Text style={styles.toDo}>{this.props.name}</Text>
+    );
+  }
+}
+
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Tiny To-Do',
@@ -48,7 +56,7 @@ class AddScreen extends React.Component {
 	    	onChangeText={(text) => this.setState({text})}
         />
         <Text style={styles.text}>
-          {this.state.text}
+          <ToDo name={this.state.text} />
         </Text>
 	    </View>
     );
