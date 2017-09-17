@@ -2,7 +2,7 @@
 TinyApp is a very, very basic to-do list app written with React Native. It was created for COMP 150-MOB: Mobile Development at Tufts University in September 2017.
 
 Requirements:
-* Must use at least one image (not yet met)
+* Must use at least one image (met)
 * Must use at least two views (met?)
 * Must use at least two widgets (met? double check)
 * Must have at least one transition between screens (met!)
@@ -27,3 +27,4 @@ Android 6.0 (Marshmallow) is required to run this little guy.
 * React Native's documentation is great (except for states).
 * React Native uses Javascript, but it's weird, and styles are similar to CSS but just different enough to trip you up on syntax.
 * I'm out of practice with Javascript.
+* It's hard to share data between components in React Native, which I only learned after I spent a ton of time working on this thing, which requires sharing data between components.

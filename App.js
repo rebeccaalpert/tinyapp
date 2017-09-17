@@ -8,17 +8,12 @@ import {
   TextInput,
   Image,
   View,
+  AsyncStorage
 } from 'react-native';
 import {
   StackNavigator,
   NavigationActions
 } from 'react-navigation';
-
-var toDosList = [];
-
-function addToDo(newToDo) {
-	toDosList.push(newToDo);
-}
 
 class ToDo {
 	constructor(title) {
@@ -40,12 +35,11 @@ class HomeScreen extends React.Component {
 		<Text style={styles.headLine}>
 	    	Your To-Dos
 	    </Text>
-	    <Image source={{uri: 'http://d2trtkcohkrm90.cloudfront.net/images/emoji/apple/ios-10/256/crying-face.png'}} style={{width: 100, height: 100}}/>
+	    <Image source={{uri: 'https://images.vexels.com/media/users/3/134743/isolated/preview/97ae591756f3dc69db88c09fd097319a-sad-face-emoji-emoticon-by-vexels.png'}} style={{width: 100, height: 100, marginBottom: 20}}/>
 	    <Text style={styles.text, {marginBottom: 20}}>
 	    	You don't have any to-dos!
 	    </Text>
-	    <Button
-          onPress={() => navigate('Add')}
+	    <Button onPress={() => navigate('Add')}
           title="Add a To-Do"
         />
 	</View>
@@ -70,7 +64,7 @@ class AddScreen extends React.Component {
 		<View style={styles.container}>
 			<Text style={styles.headLine}>Enter your to-do:</Text>
 	    	<TextInput style={{height: 40, width: 350}} placeholder="Bring home the bacon"
-	    	onSubmitEditing={addToDo(new ToDo(this.text)), () => goBack()}
+	    	onSubmitEditing={() => goBack()}
         />
 	    </View>
     );
@@ -101,6 +95,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
+/*const renderToDos = toDosList.map((item) => 
+	<Text key={item.title} style={styles.toDo}>{item}</Text>
+);*/
 
 const TinyToDo = StackNavigator({
   Home: { screen: HomeScreen },
