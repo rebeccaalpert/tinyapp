@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Button,
   TextInput,
+  Image,
   View,
 } from 'react-native';
 import {
@@ -19,6 +20,14 @@ function addToDo(newToDo) {
 	toDosList.push(newToDo);
 }
 
+class ToDo {
+	constructor(title) {
+		this.title = title;
+		this.completed = false;
+		this.createdAt = new Date();
+	}
+};
+
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Tiny To-Do',
@@ -31,6 +40,7 @@ class HomeScreen extends React.Component {
 		<Text style={styles.headLine}>
 	    	Your To-Dos
 	    </Text>
+	    <Image source={{uri: 'http://d2trtkcohkrm90.cloudfront.net/images/emoji/apple/ios-10/256/crying-face.png'}} style={{width: 100, height: 100}}/>
 	    <Text style={styles.text, {marginBottom: 20}}>
 	    	You don't have any to-dos!
 	    </Text>
@@ -60,7 +70,7 @@ class AddScreen extends React.Component {
 		<View style={styles.container}>
 			<Text style={styles.headLine}>Enter your to-do:</Text>
 	    	<TextInput style={{height: 40, width: 350}} placeholder="Bring home the bacon"
-	    	onSubmitEditing={addToDo(this.text), () => goBack()}
+	    	onSubmitEditing={addToDo(new ToDo(this.text)), () => goBack()}
         />
 	    </View>
     );

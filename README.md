@@ -1,5 +1,5 @@
 # TinyApp
-TinyApp is a very, very basic to-do list app written with React Native. It was created for COMP 150-MOB: Mobile Development at Tufts University.
+TinyApp is a very, very basic to-do list app written with React Native. It was created for COMP 150-MOB: Mobile Development at Tufts University in September 2017.
 
 Requirements:
 * Must use at least one image (not yet met)
@@ -19,7 +19,11 @@ Android 6.0 (Marshmallow) is required to run this little guy.
 ## Resources
 * [React Native Documentation](http://facebook.github.io/react-native/docs/getting-started.html)
 * [React Navigation Documentation](https://reactnavigation.org/docs/intro/)
+* [Javascript Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
+* [Sad Face Emoji Icon Designed by Vexels.com](https://www.vexels.com/png-svg/preview/134743/sad-face-emoji-emoticon)
 
 ## What I Learned
 * Read the documentation. Then read the documentation again. Then, when things break, read the documentation again.
+* React Native's documentation is great (except for states).
 * React Native uses Javascript, but it's weird, and styles are similar to CSS but just different enough to trip you up on syntax.
+* I'm out of practice with Javascript.
