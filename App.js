@@ -8,26 +8,31 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import {
+  StackNavigator,
+  NavigationActions
+} from 'react-navigation';
 
-class ToDo extends Component {
-  render() {
-    return (
-      <Text style={styles.toDo}>{this.props.name}</Text>
-    );
-  }
+var toDosList = [];
+
+function addToDo(newToDo) {
+	toDosList.push(newToDo);
 }
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Tiny To-Do',
   };
+
   render() {
   	const { navigate } = this.props.navigation;
   	return (
   	<View style={styles.container}>
 		<Text style={styles.headLine}>
 	    	Your To-Dos
+	    </Text>
+	    <Text style={styles.text, {marginBottom: 20}}>
+	    	You don't have any to-dos!
 	    </Text>
 	    <Button
           onPress={() => navigate('Add')}
@@ -39,7 +44,7 @@ class HomeScreen extends React.Component {
 }
 
 class AddScreen extends React.Component {
-	static navigationOptions = {
+  static navigationOptions = {
     title: 'Add a To-Do',
   };
 
@@ -49,15 +54,14 @@ class AddScreen extends React.Component {
   }
 
   render() {
+  	const { navigate } = this.props.navigation;
+  	const {goBack} = this.props.navigation;
     return (
 		<View style={styles.container}>
 			<Text style={styles.headLine}>Enter your to-do:</Text>
 	    	<TextInput style={{height: 40, width: 350}} placeholder="Bring home the bacon"
-	    	onChangeText={(text) => this.setState({text})}
+	    	onSubmitEditing={addToDo(this.text), () => goBack()}
         />
-        <Text style={styles.text}>
-          <ToDo name={this.state.text} />
-        </Text>
 	    </View>
     );
   }
@@ -73,7 +77,7 @@ const styles = StyleSheet.create({
   headLine: {
     fontSize: 30,
     marginTop: 30,
-    marginBottom: 30,
+    marginBottom: 20,
     fontWeight: 'bold',
   },
   toDo: {
