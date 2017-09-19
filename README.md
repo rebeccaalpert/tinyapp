@@ -20,6 +20,7 @@ Android 6.0 (Marshmallow) is required to run this little guy.
 * [React Native Documentation](http://facebook.github.io/react-native/docs/getting-started.html)
 * [React Navigation Documentation](https://reactnavigation.org/docs/intro/)
 * [Javascript Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
+* [Conditional Rendering](https://facebook.github.io/react/docs/conditional-rendering.html)
 * [Sad Face Emoji Icon Designed by Vexels.com](https://www.vexels.com/png-svg/preview/134743/sad-face-emoji-emoticon)
 
 ## What I Learned

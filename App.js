@@ -8,64 +8,60 @@ import {
   TextInput,
   Image,
   View,
-  AsyncStorage
+  ScrollView,
 } from 'react-native';
 import {
   StackNavigator,
   NavigationActions
 } from 'react-navigation';
 
-class ToDo {
-	constructor(title) {
-		this.title = title;
-		this.completed = false;
-		this.createdAt = new Date();
-	}
-};
-
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Tiny To-Do',
+    title: 'Welcome',
   };
 
   render() {
   	const { navigate } = this.props.navigation;
+
   	return (
   	<View style={styles.container}>
 		<Text style={styles.headLine}>
-	    	Your To-Dos
+	    	Feeling sad?
 	    </Text>
-	    <Image source={{uri: 'https://images.vexels.com/media/users/3/134743/isolated/preview/97ae591756f3dc69db88c09fd097319a-sad-face-emoji-emoticon-by-vexels.png'}} style={{width: 100, height: 100, marginBottom: 20}}/>
+	    <Image source={require('./images/sad-face-emoji-emoticon-by-Vexels.png')} style={{width: 100, height: 100, marginBottom: 20}}/>
 	    <Text style={styles.text, {marginBottom: 20}}>
-	    	You don't have any to-dos!
-	    </Text>
-	    <Button onPress={() => navigate('Add')}
-          title="Add a To-Do"
+        Let's cheer you up!
+      </Text>
+	    <Button onPress={() => navigate('Cats')}
+          title="Onward"
         />
 	</View>
 	);
   }
 }
 
-class AddScreen extends React.Component {
+class CatScreen extends React.Component {
   static navigationOptions = {
-    title: 'Add a To-Do',
+    title: 'Cute Cats!!!111',
   };
-
-  constructor(props) {
-    super(props);
-    this.state = {text: ''};
-  }
 
   render() {
   	const { navigate } = this.props.navigation;
-  	const {goBack} = this.props.navigation;
+  	const { goBack } = this.props.navigation;
     return (
 		<View style={styles.container}>
-			<Text style={styles.headLine}>Enter your to-do:</Text>
-	    	<TextInput style={{height: 40, width: 350}} placeholder="Bring home the bacon"
-	    	onSubmitEditing={() => goBack()}
-        />
+			<Text style={styles.headLine}>So many cats!</Text>
+      <ScrollView contentContainerStyle={styles.toDo}>
+        <Image source={require('./images/cat1.jpg')} style={{width: 350, marginBottom: 20}}/>
+        <Image source={require('./images/cat2.jpg')} style={{width: 350, marginBottom: 20}}/>
+        <Image source={require('./images/cat3.jpg')} style={{width: 350, marginBottom: 20}}/>
+        <Image source={require('./images/cat4.jpg')} style={{width: 350, marginBottom: 20}}/>
+        <Image source={require('./images/cat5.jpg')} style={{width: 350, marginBottom: 20}}/>
+        <Image source={require('./images/cat6.jpg')} style={{width: 350, marginBottom: 20}}/>
+        <Image source={require('./images/cat7.jpg')} style={{width: 350, marginBottom: 20}}/>
+        <Image source={require('./images/cat8.jpg')} style={{width: 350, marginBottom: 20}}/>
+        <Image source={require('./images/cat9.jpg')} style={{width: 350, marginBottom: 20}}/>
+      </ScrollView>
 	    </View>
     );
   }
@@ -85,9 +81,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   toDo: {
-    backgroundColor: '#FFFFFF',
-    padding: 30,
-    marginBottom: 20,
     width: 350,
   },
   text: {
@@ -96,13 +89,9 @@ const styles = StyleSheet.create({
   },
 });
 
-/*const renderToDos = toDosList.map((item) => 
-	<Text key={item.title} style={styles.toDo}>{item}</Text>
-);*/
-
 const TinyToDo = StackNavigator({
   Home: { screen: HomeScreen },
-  Add: { screen: AddScreen },
+  Cats: { screen: CatScreen },
 });
 
 AppRegistry.registerComponent('TinyToDo', () => TinyToDo);
